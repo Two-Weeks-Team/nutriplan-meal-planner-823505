@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 20% 10%;
+  --foreground: 210 40% 96%;
+  --card: 223 18% 14%;
+  --muted: 220 16% 20%;
+  --border: 220 15% 28%;
+  --primary: 142 64% 44%;
+  --primary-foreground: 210 40% 98%;
+  --accent: 327 74% 56%;
+  --accent-foreground: 210 40% 98%;
+  --success: 145 63% 52%;
+  --warning: 35 90% 58%;
+  --destructive: 0 78% 63%;
+  --radius-lg: 1rem;
+  --radius-md: 0.7rem;
+  --radius-sm: 0.45rem;
+  --shadow-folio: 0 20px 40px hsl(220 30% 4% / 0.45);
+  --shadow-card: 0 10px 24px hsl(220 30% 4% / 0.35);
+}
+
+* { border-color: hsl(var(--border)); }
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 14%, hsl(var(--primary) / 0.18), transparent 30%),
+    radial-gradient(circle at 84% 22%, hsl(var(--accent) / 0.16), transparent 34%),
+    linear-gradient(180deg, hsl(220 22% 12%), hsl(220 18% 9%));
+  color: hsl(var(--foreground));
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(hsl(var(--border) / 0.16) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--border) / 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, black, transparent 85%);
+}
