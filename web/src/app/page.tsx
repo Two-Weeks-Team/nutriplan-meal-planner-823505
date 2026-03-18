@@ -18,7 +18,12 @@ export default function Page() {
     setError("");
     try {
       const data = await fetchItems();
-      setFolio(data.items ?? []);
+      const items = Array.isArray(data) ? data : (data.items ?? []);
+      setFolio(items.map((p: Record<string, unknown>) => ({
+        id: String(p.id ?? ""),
+        name: String(p.name ?? ""),
+        updated_at: `${p.goal ?? ""} · ${p.weight_kg ?? ""}kg`,
+      })));
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed loading data");
     } finally {
